@@ -1,0 +1,28 @@
+# One ticker per line. Lines starting with # are ignored.
+# Edit via GitHub web UI when holdings change; next Action run picks it up.
+VTI
+VXUS
+VEA
+AGG
+SPYM
+VTV
+VNQ
+SPY
+BND
+SCHD
+SMH
+AVUV
+GLD
+VIGI
+BNDX
+VWO
+SPMD
+SPSM
+STIP
+TFI
+VWOB
+JPST
+MUB
+SPEM
+GBIL
+JCPB
