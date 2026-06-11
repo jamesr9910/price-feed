@@ -1,1 +1,38 @@
+name: Update prices
 
+on:
+  schedule:
+    # Weekdays at 21:35 UTC = 5:35pm ET during EDT (after market close).
+    - cron: "35 21 * * 1-5"
+  workflow_dispatch: {}   # manual "Run workflow" button for on-demand refresh
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install yfinance
+
+      - name: Fetch prices
+        run: python fetch_prices.py
+
+      - name: Commit prices.json if changed
+        run: |
+          git config user.name "price-bot"
+          git config user.email "actions@github.com"
+          git add prices.json
+          if git diff --cached --quiet; then
+            echo "No price changes — nothing to commit."
+          else
+            git commit -m "Update prices $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
