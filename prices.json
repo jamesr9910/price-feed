@@ -1,133 +1,133 @@
 {
-  "as_of": "2026-06-16T16:04:58Z",
+  "as_of": "2026-06-17T12:22:50Z",
   "prices": {
     "AGG": {
-      "price": 99.025,
+      "price": 98.97,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "AVUV": {
-      "price": 122.89,
-      "quote_date": "2026-06-16",
+      "price": 123.18,
+      "quote_date": "2026-06-15",
       "source": "yfinance"
     },
     "BND": {
-      "price": 73.425,
+      "price": 73.41,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "BNDX": {
-      "price": 48.355,
-      "quote_date": "2026-06-16",
+      "price": 48.27,
+      "quote_date": "2026-06-15",
       "source": "yfinance"
     },
     "GBIL": {
-      "price": 100.05,
-      "quote_date": "2026-06-16",
+      "price": 100.04,
+      "quote_date": "2026-06-15",
       "source": "yfinance"
     },
     "GLD": {
-      "price": 398.08,
+      "price": 397.63,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "JCPB": {
-      "price": 46.945,
-      "quote_date": "2026-06-16",
+      "price": 46.85,
+      "quote_date": "2026-06-15",
       "source": "yfinance"
     },
     "JPST": {
-      "price": 50.525,
-      "quote_date": "2026-06-16",
+      "price": 50.52,
+      "quote_date": "2026-06-15",
       "source": "yfinance"
     },
     "MUB": {
-      "price": 107.325,
+      "price": 107.17,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "SCHD": {
-      "price": 32.725,
+      "price": 32.53,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "SMH": {
-      "price": 631.165,
+      "price": 616.0,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "SPEM": {
-      "price": 52.77,
+      "price": 52.56,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "SPMD": {
-      "price": 67.05,
-      "quote_date": "2026-06-16",
+      "price": 66.94,
+      "quote_date": "2026-06-15",
       "source": "yfinance"
     },
     "SPSM": {
       "price": 55.95,
-      "quote_date": "2026-06-16",
+      "quote_date": "2026-06-15",
       "source": "yfinance"
     },
     "SPY": {
-      "price": 753.3,
+      "price": 750.33,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "SPYM": {
-      "price": 88.44,
+      "price": 88.09,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "STIP": {
-      "price": 102.3464,
+      "price": 102.33,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "TFI": {
-      "price": 45.64,
+      "price": 45.59,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "VEA": {
-      "price": 72.57,
+      "price": 72.32,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "VIGI": {
-      "price": 94.45,
-      "quote_date": "2026-06-16",
+      "price": 94.04,
+      "quote_date": "2026-06-15",
       "source": "yfinance"
     },
     "VNQ": {
-      "price": 98.355,
+      "price": 98.06,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "VTI": {
-      "price": 371.945,
+      "price": 370.37,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "VTV": {
-      "price": 219.11,
+      "price": 218.03,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "VWO": {
-      "price": 60.32,
+      "price": 60.16,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     },
     "VWOB": {
-      "price": 67.455,
-      "quote_date": "2026-06-16",
+      "price": 67.37,
+      "quote_date": "2026-06-15",
       "source": "yfinance"
     },
     "VXUS": {
-      "price": 86.885,
+      "price": 86.63,
       "quote_date": "2026-06-16",
       "source": "yfinance"
     }
