@@ -1,134 +1,134 @@
 {
-  "as_of": "2026-07-21T22:29:37Z",
+  "as_of": "2026-07-22T22:36:46Z",
   "prices": {
     "AGG": {
-      "price": 97.74,
-      "quote_date": "2026-07-21",
+      "price": 97.58,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "AVUV": {
-      "price": 126.06,
-      "quote_date": "2026-07-21",
+      "price": 125.92,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "BND": {
-      "price": 72.515,
-      "quote_date": "2026-07-21",
+      "price": 72.4,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "BNDX": {
-      "price": 47.83,
-      "quote_date": "2026-07-21",
+      "price": 47.8,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "GBIL": {
       "price": 100.06,
-      "quote_date": "2026-07-21",
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "GLD": {
-      "price": 374.81,
-      "quote_date": "2026-07-21",
+      "price": 379.12,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "JCPB": {
-      "price": 46.38,
-      "quote_date": "2026-07-21",
+      "price": 46.3,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "JPST": {
-      "price": 50.48,
-      "quote_date": "2026-07-21",
+      "price": 50.49,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "MUB": {
-      "price": 106.17,
-      "quote_date": "2026-07-21",
+      "price": 105.88,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "SCHD": {
-      "price": 32.82,
-      "quote_date": "2026-07-21",
+      "price": 32.9,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "SMH": {
-      "price": 584.08,
-      "quote_date": "2026-07-21",
+      "price": 586.91,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "SPEM": {
       "price": 51.11,
-      "quote_date": "2026-07-21",
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "SPMD": {
-      "price": 66.35,
-      "quote_date": "2026-07-21",
+      "price": 66.33,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "SPSM": {
-      "price": 57.0,
-      "quote_date": "2026-07-21",
+      "price": 56.69,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "SPY": {
-      "price": 748.28,
-      "quote_date": "2026-07-21",
+      "price": 747.41,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "SPYM": {
-      "price": 88.08,
-      "quote_date": "2026-07-21",
+      "price": 87.97,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "STIP": {
-      "price": 101.35,
-      "quote_date": "2026-07-21",
+      "price": 101.31,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "TFI": {
-      "price": 45.235,
-      "quote_date": "2026-07-21",
+      "price": 45.1,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "VEA": {
-      "price": 70.47,
-      "quote_date": "2026-07-21",
+      "price": 70.49,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "VIGI": {
-      "price": 94.95,
-      "quote_date": "2026-07-21",
+      "price": 94.85,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "VNQ": {
-      "price": 99.52,
-      "quote_date": "2026-07-21",
+      "price": 99.02,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "VTI": {
-      "price": 369.45,
-      "quote_date": "2026-07-21",
+      "price": 368.87,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "VTV": {
-      "price": 218.63,
-      "quote_date": "2026-07-21",
+      "price": 219.34,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "VWO": {
-      "price": 58.86,
-      "quote_date": "2026-07-21",
+      "price": 58.81,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "VWOB": {
-      "price": 66.3,
-      "quote_date": "2026-07-21",
+      "price": 66.12,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     },
     "VXUS": {
-      "price": 84.45,
-      "quote_date": "2026-07-21",
+      "price": 84.46,
+      "quote_date": "2026-07-22",
       "source": "yfinance"
     }
   },
