@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-07T00:59:00Z",
+  "as_of": "2026-10-08T01:14:21Z",
   "prices": {
     "AGG": {
       "price": 94.36,
@@ -7,8 +7,8 @@
       "source": "yfinance"
     },
     "AVUV": {
-      "price": 120.73,
-      "quote_date": "2026-10-05",
+      "price": 120.47,
+      "quote_date": "2026-10-06",
       "source": "yfinance"
     },
     "BND": {
@@ -17,13 +17,13 @@
       "source": "yfinance"
     },
     "BNDX": {
-      "price": 46.79,
-      "quote_date": "2026-10-05",
+      "price": 46.85,
+      "quote_date": "2026-10-06",
       "source": "yfinance"
     },
     "GBIL": {
-      "price": 99.88,
-      "quote_date": "2026-10-05",
+      "price": 99.9,
+      "quote_date": "2026-10-06",
       "source": "yfinance"
     },
     "GLD": {
@@ -32,13 +32,13 @@
       "source": "yfinance"
     },
     "JCPB": {
-      "price": 44.54,
-      "quote_date": "2026-10-05",
+      "price": 44.63,
+      "quote_date": "2026-10-06",
       "source": "yfinance"
     },
     "JPST": {
-      "price": 50.24,
-      "quote_date": "2026-10-05",
+      "price": 50.25,
+      "quote_date": "2026-10-06",
       "source": "yfinance"
     },
     "MUB": {
@@ -62,13 +62,13 @@
       "source": "yfinance"
     },
     "SPMD": {
-      "price": 64.55,
-      "quote_date": "2026-10-05",
+      "price": 64.83,
+      "quote_date": "2026-10-06",
       "source": "yfinance"
     },
     "SPSM": {
-      "price": 54.05,
-      "quote_date": "2026-10-05",
+      "price": 53.99,
+      "quote_date": "2026-10-06",
       "source": "yfinance"
     },
     "SPY": {
@@ -96,11 +96,6 @@
       "quote_date": "2026-10-06",
       "source": "yfinance"
     },
-    "VIGI": {
-      "price": 94.33,
-      "quote_date": "2026-10-05",
-      "source": "yfinance"
-    },
     "VNQ": {
       "price": 89.93,
       "quote_date": "2026-10-06",
@@ -122,8 +117,8 @@
       "source": "yfinance"
     },
     "VWOB": {
-      "price": 62.8,
-      "quote_date": "2026-10-05",
+      "price": 63.21,
+      "quote_date": "2026-10-06",
       "source": "yfinance"
     },
     "VXUS": {
@@ -132,5 +127,7 @@
       "source": "yfinance"
     }
   },
-  "errors": []
+  "errors": [
+    "VIGI: not found on yfinance or stooq"
+  ]
 }
