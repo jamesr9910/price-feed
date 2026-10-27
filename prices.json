@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-10-23T23:57:21Z",
+  "as_of": "2026-10-27T00:44:08Z",
   "prices": {
     "AGG": {
       "price": 95.96,
@@ -32,23 +32,23 @@
       "source": "yfinance"
     },
     "FAGIX": {
-      "price": 10.91,
-      "quote_date": "2026-10-22",
+      "price": 10.87,
+      "quote_date": "2026-10-23",
       "source": "yfinance"
     },
     "FSRIX": {
-      "price": 11.85,
-      "quote_date": "2026-10-22",
+      "price": 11.83,
+      "quote_date": "2026-10-23",
       "source": "yfinance"
     },
     "FZILX": {
-      "price": 16.48,
-      "quote_date": "2026-10-22",
+      "price": 16.47,
+      "quote_date": "2026-10-23",
       "source": "yfinance"
     },
     "FZROX": {
-      "price": 26.68,
-      "quote_date": "2026-10-22",
+      "price": 26.55,
+      "quote_date": "2026-10-23",
       "source": "yfinance"
     },
     "GBIL": {
