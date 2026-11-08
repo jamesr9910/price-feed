@@ -2,12 +2,21 @@ name: Update prices
 
 on:
   schedule:
-    # Weekdays at 21:35 UTC = 5:35pm ET during EDT (after market close).
+    # Weekday evenings: 21:35 UTC (4:35pm EST / 5:35pm EDT), after the close.
+    # GitHub often starts this 2-5 hours late.
     - cron: "35 21 * * 1-5"
+    # Backstop: Tue-Sat mornings, 11:15 UTC (6:15am EST / 7:15am EDT).
+    # Yahoo has finalized the prior session by then, so this always lands
+    # the previous trading day's close even if the evening run came back stale.
+    - cron: "15 11 * * 2-6"
   workflow_dispatch: {}   # manual "Run workflow" button for on-demand refresh
 
 permissions:
   contents: write
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
 
 jobs:
   fetch:
@@ -34,5 +43,6 @@ jobs:
             echo "No price changes — nothing to commit."
           else
             git commit -m "Update prices $(date -u +%Y-%m-%dT%H:%MZ)"
+            git pull --rebase --quiet
             git push
           fi
