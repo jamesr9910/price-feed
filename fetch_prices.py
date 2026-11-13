@@ -16,6 +16,17 @@ right 50 of 51 times. Anchoring start/end to the Eastern date removes the
 UTC-rollover dependence. The workflow also runs on weekday mornings as a
 backstop, after Yahoo has finalized the prior session.
 
+Guards (added Nov 2026, after GitHub started delaying the 6:15am backstop to
+~1:45pm ET and the evening run past 00:00 UTC):
+  1. No intraday prices: before 4:30pm ET, today's bar is ignored, so a run
+     during market hours returns the previous session's finalized close
+     instead of a live price dated today.
+  2. Never go backwards: a ticker whose new quote_date is older than the one
+     already in prices.json keeps the newer price; a ticker this run missed
+     keeps its last known price (still listed in "errors").
+  3. No-op runs don't rewrite prices.json, so the workflow's "No price
+     changes" check works and as_of means "when prices last changed".
+
 Output schema (prices.json):
 {
   "as_of": "2026-06-11T21:35:02Z",      # when this file was generated (UTC)
@@ -32,13 +43,16 @@ import io
 import json
 import sys
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, time, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 TICKERS_FILE = Path(__file__).parent / "tickers.txt"
 OUTPUT_FILE = Path(__file__).parent / "prices.json"
 ET = ZoneInfo("America/New_York")
+# Today's daily bar counts only after this ET time (close is 4:00pm; Yahoo's
+# official closing price settles a little later).
+CLOSE_CUTOFF = time(16, 30)
 
 STOOQ_URL = "https://stooq.com/q/l/?s={symbol}.us&f=sd2t2ohlcv&h&e=csv"
 
@@ -59,8 +73,18 @@ def window() -> tuple[str, str]:
     return (today_et - timedelta(days=10)).isoformat(), (today_et + timedelta(days=1)).isoformat()
 
 
+def unfinished_session() -> str | None:
+    """Today's ET date while its session may still be open or unsettled,
+    else None. Bars dated this day are not closes yet and are ignored."""
+    now = datetime.now(ET)
+    return now.date().isoformat() if now.time() < CLOSE_CUTOFF else None
+
+
 def last_close(df) -> dict | None:
     closes = df["Close"].dropna()
+    skip = unfinished_session()
+    if skip and not closes.empty:
+        closes = closes[closes.index.strftime("%Y-%m-%d") != skip]
     if closes.empty:
         return None
     return {
@@ -138,6 +162,9 @@ def fetch_stooq(ticker: str) -> dict | None:
         close = row.get("Close", "")
         if not close or close in ("N/D", "N/A"):
             return None
+        if row.get("Date", "") == unfinished_session():
+            print(f"stooq: {ticker} only has today's live price; skipped", file=sys.stderr)
+            return None
         return {
             "price": round(float(close), 4),
             "quote_date": row.get("Date", ""),
@@ -148,9 +175,21 @@ def fetch_stooq(ticker: str) -> dict | None:
         return None
 
 
+def load_previous() -> dict:
+    try:
+        return json.loads(OUTPUT_FILE.read_text())
+    except Exception:
+        return {}
+
+
 def main() -> int:
     tickers = load_tickers()
     print(f"Fetching {len(tickers)} tickers: {', '.join(tickers)}")
+    skip = unfinished_session()
+    if skip:
+        print(f"Before {CLOSE_CUTOFF:%H:%M} ET: ignoring {skip} bars (session not final)")
+    previous = load_previous()
+    prev_prices = previous.get("prices") or {}
 
     prices = fetch_yfinance(tickers)
     missing = [t for t in tickers if t not in prices]
@@ -166,9 +205,32 @@ def main() -> int:
     for e in errors:
         print(f"ERROR: {e}", file=sys.stderr)
 
+    # Never go backwards: keep a newer previous price over an older new one,
+    # and carry forward the last known price for tickers this run missed.
+    kept_newer, carried = [], []
+    for t in tickers:
+        old = prev_prices.get(t)
+        if not old or not old.get("quote_date"):
+            continue
+        if t not in prices:
+            prices[t] = old
+            carried.append(t)
+        elif old["quote_date"] > prices[t]["quote_date"]:
+            prices[t] = old
+            kept_newer.append(t)
+    if kept_newer:
+        print(f"Fetched an older session than prices.json has; kept newer price for: {', '.join(kept_newer)}")
+    if carried:
+        print(f"Kept last known price for missed tickers: {', '.join(carried)}")
+
+    out_prices = {t: prices[t] for t in sorted(prices)}
+    if out_prices == prev_prices and errors == (previous.get("errors") or []):
+        print("Prices unchanged since last run; leaving prices.json as is.")
+        return 0
+
     out = {
         "as_of": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "prices": {t: prices[t] for t in sorted(prices)},
+        "prices": out_prices,
         "errors": errors,
     }
     OUTPUT_FILE.write_text(json.dumps(out, indent=2) + "\n")
